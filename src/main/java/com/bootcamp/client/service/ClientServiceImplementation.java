@@ -18,7 +18,6 @@ public class ClientServiceImplementation implements ClientService {
     //export in controller
      public Flux<ClientEntity> getAll() {
         return clientRepository.findAll();
-                //.switchIfEmpty(Mono.error(new CustomException("Clients not found")));
     }
 
         public Mono<ClientEntity>getByDocument(String documentNumber){
@@ -29,7 +28,7 @@ public class ClientServiceImplementation implements ClientService {
     @Override
     public Mono<ClientEntity> filterByDocument(String documentNumber) {
         return clientRepository.findAll().filter(x -> x.getDocumentNumber() != null && x.getDocumentNumber().equals(documentNumber)).next();
-                //.switchIfEmpty(Mono.error(new CustomException("Client not found")));
+
     }
 
     //Register client with no validate
@@ -53,6 +52,5 @@ public class ClientServiceImplementation implements ClientService {
             c.setModifyDate(new Date());
             return clientRepository.save(c);
         });
-        //.switchIfEmpty(Mono.error(new CustomNotFoundException("Client not found")));
     }
 }
