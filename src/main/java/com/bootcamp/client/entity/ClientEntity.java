@@ -9,9 +9,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
+//anotacion que ahorra codigo para la obtencion y configuracion de los atributos de la clase.
 @Data
+//anotacion para ahorrar codigo de constructor con 1 parametro
 @AllArgsConstructor
+//anotacion para ahorrar codigo de constructor sin parametros
 @NoArgsConstructor
+//anotacion que indica que se utilizará para mapear a la collection "Client" de la bd mongo
 @Document(collection = "Client")
 public class ClientEntity {
     @Id
