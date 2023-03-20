@@ -51,11 +51,30 @@ public class ClientServiceImplementation implements ClientService {
     }
     //implementacion para actualizar el dato del nombre del cliente.
     @Override
-    public Mono<ClientEntity> updateClient(String documentNumber, String name) {
+    public Mono<ClientEntity> updateTypeClient(String documentNumber, String type) {
         return getByDocument(documentNumber).flatMap(c -> {
-            c.setName(name);
+            c.setClientType(type);
             c.setModifyDate(new Date());
             return clientRepository.save(c);
         });
     }
+    //Implementacion para validar si el cliente es persona y existe.
+    @Override
+    public Mono<Boolean> checkClientPersona(String documentNumber){
+        return clientRepository.findAll().filter(
+                x -> x.getDocumentNumber() != null
+                        && x.getDocumentNumber().equals(documentNumber)
+                        && x.getClientType().equals("P"))
+                .hasElements();
+    }
+    //Implementacion para validar si el cliente es empresa y existe.
+    public Mono<Boolean> checkClientCompany(String documentNumber){
+        return clientRepository.findAll().filter(
+                        x -> x.getDocumentNumber() != null
+                                && x.getDocumentNumber().equals(documentNumber)
+                                && x.getClientType().equals("C"))
+                .hasElements();
+    }
+
+
 }

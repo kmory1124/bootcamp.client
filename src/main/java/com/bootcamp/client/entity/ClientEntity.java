@@ -23,6 +23,7 @@ public class ClientEntity {
     private  String documentNumber;
     private  String documentType;
     private  String clientType; // P-> Personal | C-> Company
+    private  String profile; // PYME / VYP
     private  String name;
     private  String lastname;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")

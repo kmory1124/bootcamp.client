@@ -43,9 +43,19 @@ public class ClientController {
     }
 
     //se expone el controlador tipo put para actualizar los valores del nombre del usuario.
-    @PutMapping(value = "/UpdateClient/{documentNumber}/{name}")
-    public Mono<ClientEntity> updateClient(@PathVariable("documentNumber") String documentNumber, @PathVariable("name") String name){
-        return clientService.updateClient(documentNumber,name);
+    @PutMapping(value = "/updateTypeClient/{documentNumber}/{type}")
+    public Mono<ClientEntity> updateTypeClient(@PathVariable("documentNumber") String documentNumber, @PathVariable("type") String type){
+        return clientService.updateTypeClient(documentNumber,type);
     }
 
+    //Se expone el controlador tipo Get para validar si el cliente es tipo Persona
+    @GetMapping(value = "/checkClientPersona/{documentNumber}")
+    public Mono<Boolean> checkClientPersona(@PathVariable("documentNumber") String documentNumber){
+        return clientService.checkClientPersona(documentNumber);
+    }
+    //Se expone el controlador tipo Get para validar si el cliente es tipo Persona
+    @GetMapping(value = "/checkClientCompany/{documentNumber}")
+    public Mono<Boolean> checkClientCompany(@PathVariable("documentNumber") String documentNumber){
+        return clientService.checkClientCompany(documentNumber);
+    }
 }

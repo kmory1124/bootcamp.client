@@ -17,6 +17,10 @@ public interface ClientService {
     //se crea interfaz para registrar usarios, validando que el dni no exista, por si el front requiere que el microservicio valide la existencia
     // del cliente antes de registrarlo (se expone en el controller)
     public Mono<ClientEntity> registerClient(ClientEntity EntCli);
-    //se crea intefaz para actualizar la información del nombre del cliente (se expone en el controller)
-    public Mono<ClientEntity> updateClient(String documentNumber, String Name);
+    //se crea intefaz para actualizar la información deL tipo de persona del cliente (se expone en el controller)
+    public Mono<ClientEntity> updateTypeClient(String documentNumber, String type);
+    //Valida si el usuario existe y si es de tipo persona
+    public Mono<Boolean> checkClientPersona(String documentNumber);
+    //Valida si el usuario existe y si es de tipo persona
+    public Mono<Boolean> checkClientCompany(String documentNumber);
 }
