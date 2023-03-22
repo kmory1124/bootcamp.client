@@ -21,15 +21,15 @@ http://localhost:8085/Client/checkClientPersona/47304033 (VALIDA SI EL CLIENTE E
 http://localhost:8085/Client/checkClientCompany/47304036 (VALIDA SI EL CLIENTE ES TIPO EMPRESA-SE USA PARA QUE EL FRONT VALIDE QUE TIPOS DE CUENTA O CREDITO CREAR)
 
 
-body para RegisterClient/register:
-{
-"documentNumber": "33312611",
-"documentType":"DNI",
-"clientType":"P",
-"name":"PEPO2 PABLO",
-"lastname":"FEDER CALDERON2",
-"createDate":"11/03/2023",
-"modifyDate":"11/03/2023"
+{        
+"documentNumber": "47304033",
+"documentType": "DNI",
+"clientType": "P",
+"profile": "VYP",
+"name": "Kennji Esteban",
+"lastname": "Mory Yagi",
+"createDate": "03/12/2023",
+"modifyDate": "03/12/2023"
 }
 
 Porcentaje de Avance: 100% terminado
